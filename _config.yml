@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Eric Martin Feltham / Site Title"
+title                    : "Eric Martin Feltham"
 title_separator          : "-"
 name                     : &name "Eric Martin Feltham"
 description              : &description "personal description"
@@ -82,10 +82,10 @@ analytics:
 author:
   name             : "Eric Martin Feltham"
   avatar           : "eric.feltham.photo.png"
-  bio              : "PhD Candidate, Sociology, Yale University"
+  bio              : "PhD Candidate, Sociology"
+  employer         : "Yale University"
   location         : "New Haven, CT"
-  employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?hl=en&pli=1&user=ZBXN38kAAAAJ"
   email            : "eric.feltham@yale.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
@@ -180,7 +180,7 @@ collections:
     permalink: /:collection/:path/
   publications:
     output: true
-    permalink: /:collection/:path/
+    permalink: "https://emfeltham.github.io/markdown-cv/"
   portfolio:
     output: true
     permalink: /:collection/:path/
