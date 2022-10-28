@@ -180,7 +180,7 @@ collections:
     permalink: /:collection/:path/
   publications:
     output: true
-    permalink: "https://emfeltham.github.io/markdown-cv/"
+    permalink: /:collection/:path/
   portfolio:
     output: true
     permalink: /:collection/:path/
