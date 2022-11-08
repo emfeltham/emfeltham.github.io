@@ -14,4 +14,4 @@ I am a graduate student researcher in the [Yale Institute for Network Science](h
 
 I am interested in social networks, causal inference, and computational social science, and behavioral experiments. Specifically, I am interested in how individuals cognize their social networks, risk preferences, and social learning. 
 
-Additionally, I hold an MA in Statistics from Yale, and undergraduate degrees in [Philosophy](https://www.umass.edu/philosophy/) and [Economics](https://www.umass.edu/economics/) from the University of Massachusetts Amherst.
+Additionally, I hold an MA in [Statistics](https://statistics.yale.edu) from Yale, and undergraduate degrees in [Philosophy](https://www.umass.edu/philosophy/) and [Economics](https://www.umass.edu/economics/) from the University of Massachusetts Amherst.
