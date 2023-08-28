@@ -8,9 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-I am a PhD Candidate in the [Department of Sociology](https://sociology.yale.edu) at [Yale University](https://www.yale.edu).
+I am a Postdoctoral Associate in the [Human Nature Lab](https://humannaturelab.net), the [Yale Institute for Network Science](https://yins.yale.edu), and the [Department of Sociology](https://sociology.yale.edu) at [Yale University](https://www.yale.edu).
 
-At Yale, I am a graduate student researcher in the [Yale Institute for Network Science](https://yins.yale.edu), and a member of the [Human Nature Lab](https://humannaturelab.net).
+I received my PhD in May 2023, also from Yale.
 
 I work on social networks, causal inference, and computational social science, and behavioral experiments. Specifically, I am interested in how individuals cognize their social networks, risk preferences, and social learning.
 
