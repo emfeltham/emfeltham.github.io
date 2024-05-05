@@ -12,7 +12,7 @@ I am a Postdoctoral Associate in the [Human Nature Lab](https://humannaturelab.n
 
 I received my PhD in May 2023, also from Yale.
 
-Starting in the fall, I will be a [Data Science Institute](https://datascience.columbia.edu/) Postdoctoral Research Fellow at [Columbia University](https://www.columbia.edu).
+Starting in the fall, I will be a [Data Science Institute](https://datascience.columbia.edu/) Postdoctoral Research Scientist at [Columbia University](https://www.columbia.edu).
 
 I work on social networks, computational social science, causal inference, and behavioral experiments. Specifically, I am interested in how individuals cognize their social networks, risk preferences, and social learning.
 
