@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a Postdoctoral Research Scholar in the [Data Science Institute](https://datascience.columbia.edu/) at [Columbia University](https://www.columbia.edu).
+I am a [Data Science Institute](https://datascience.columbia.edu/) Postdoctoral Fellow in the  at [Columbia University](https://www.columbia.edu).
 
 Previously, I was a Postdoctoral Associate in the [Human Nature Lab](https://humannaturelab.net), the [Yale Institute for Network Science](https://yins.yale.edu), and the [Department of Sociology](https://sociology.yale.edu) at [Yale University](https://www.yale.edu). I received my PhD in May 2023, also from Yale.
 
