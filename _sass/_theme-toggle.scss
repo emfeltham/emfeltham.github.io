@@ -1,0 +1,38 @@
+/* Theme toggle overrides */
+
+/* Light mode */
+html[data-theme="light"] body {
+  background-color: #fffff8;
+  color: #111;
+}
+
+html[data-theme="light"] a:link,
+html[data-theme="light"] .tufte-underline,
+html[data-theme="light"] .hover-tufte-underline:hover {
+  text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
+}
+
+/* Dark mode */
+html[data-theme="dark"] body {
+  background-color: #151515;
+  color: #ddd;
+}
+
+html[data-theme="dark"] a:link,
+html[data-theme="dark"] .tufte-underline,
+html[data-theme="dark"] .hover-tufte-underline:hover {
+  text-shadow: 0.03em 0 #151515, -0.03em 0 #151515, 0 0.03em #151515, 0 -0.03em #151515, 0.06em 0 #151515, -0.06em 0 #151515, 0.09em 0 #151515, -0.09em 0 #151515, 0.12em 0 #151515, -0.12em 0 #151515, 0.15em 0 #151515, -0.15em 0 #151515;
+}
+
+html[data-theme="dark"] hr {
+  border-top-color: #444;
+}
+
+/* Toggle button styling */
+#theme-toggle {
+  transition: opacity 0.2s;
+}
+
+#theme-toggle:hover {
+  opacity: 1 !important;
+}
