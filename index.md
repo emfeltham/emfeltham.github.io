@@ -20,7 +20,7 @@ nav_exclude: true
 
 I am a [Data Science Institute](https://datascience.columbia.edu/) Postdoctoral Fellow at [Columbia University](https://www.columbia.edu).
 
-Previously, I was a Postdoctoral Associate at the [Yale Institute for Network Science](https://yins.yale.edu). I received my PhD in [Sociology](https://sociology.yale.edu) from [Yale](https://www.yale.edu) in May 2023.
+I received my PhD in [Sociology](https://sociology.yale.edu) from [Yale](https://www.yale.edu) in May 2023.
 
 My research asks how people understand and navigate social structure. How do individuals mentally represent the communities around them, and how do these representations shape—and constrain—their access to information and resources? I study these questions using large-scale field experiments, behavioral experiments, novel survey methods, and causal inference approaches. I also develop open-source statistical software.
 
