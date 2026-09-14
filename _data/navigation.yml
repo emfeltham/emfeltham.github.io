@@ -2,3 +2,5 @@
 main:
   - title: "CV"
     url: "./files/main.pdf"
+  - title: "Working Papers"
+    url: "/working-papers/"

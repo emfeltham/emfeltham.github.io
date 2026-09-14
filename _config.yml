@@ -30,12 +30,18 @@ exclude:
   - LICENSE
   - vendor
   - node_modules
+  - worker
+  - bin
+  - papers
 
 # Include these directories
 include:
   - _pages
   - files
   - images
+
+# Host serving captcha-gated working-paper PDFs (Cloudflare Worker).
+papers_host: "papers.emfeltham.workers.dev"
 
 # Social links (used in homepage)
 social:

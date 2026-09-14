@@ -1,0 +1,19 @@
+name = "papers"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+# Public Turnstile sitekey. Safe to commit — it is meant to appear in page HTML.
+# Pairs with the TURNSTILE_SECRET secret, which is never committed.
+[vars]
+TURNSTILE_SITEKEY = "0x4AAAAAAE0DfgviXW6cc0u8"
+
+# Private bucket. Public access and the r2.dev URL must stay DISABLED;
+# the Worker reads it through this binding, not over HTTP.
+[[r2_buckets]]
+binding = "PAPERS"
+bucket_name = "working-papers"
+
+# Secrets are set out of band, never committed:
+#   npx wrangler secret put TURNSTILE_SECRET
+#   npx wrangler secret put COOKIE_SECRET
