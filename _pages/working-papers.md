@@ -14,15 +14,15 @@ Drafts are available below. If a link gives you trouble, do send me an email and
 
 Eric Feltham and Nicholas Christakis. "[Cognitive Expectations of Homophily in Village Social Networks](https://osf.io/preprints/socarxiv/z4nyq_v3)". *Job market paper.* Under review. SocArXiv preprint (2026).
 
-Eric Feltham. "[FormulaCompiler.jl and Margins.jl: Efficient Marginal Effects in Julia](https://arxiv.org/abs/2601.07065)". Under review. arXiv preprint (2026).
-
-Eric Feltham. "[empirica-networks: online network experiments with Empirica](https://{{ site.papers_host }}/p/feltham-empirica-networks)".
-
 Eric Feltham. "[Signal Degradation without Convergence: Scale Relevance and Partisan Boundary Investment](https://{{ site.papers_host }}/p/feltham-signal-degradation-without-convergence)".
 
 Eric Feltham. "[The Fall of White Americans' Implicit Racial Bias Split in 2016 Along the Geography of Manufacturing Decline](https://{{ site.papers_host }}/p/feltham-fall-implicit-racial-bias)".
 
 Eric Feltham and Nicholas Christakis. "[Seeing Structure Similarly](https://{{ site.papers_host }}/p/feltham-seeing-structure-similarly)".
+
+Eric Feltham. "[FormulaCompiler.jl and Margins.jl: Efficient Marginal Effects in Julia](https://arxiv.org/abs/2601.07065)". Under review. arXiv preprint (2026).
+
+Eric Feltham. "[empirica-networks: online network experiments with Empirica](https://{{ site.papers_host }}/p/feltham-empirica-networks)".
 
 ---
 
