@@ -102,7 +102,7 @@ export default {
 function handleGate(slug, env) {
   const paper = CATALOG[slug];
   if (!paper) return text('Not found\n', 404);
-  return html(gatePage(slug, paper.title, env.TURNSTILE_SITEKEY));
+  return html(gatePage(slug, paper, env.TURNSTILE_SITEKEY));
 }
 
 async function handleUnlock(request, env) {
@@ -117,7 +117,7 @@ async function handleUnlock(request, env) {
   const token = String(form.get('cf-turnstile-response') || '');
   const paper = CATALOG[slug];
   if (!paper) return text('Not found\n', 404);
-  if (!token) return html(gatePage(slug, paper.title, env.TURNSTILE_SITEKEY, true), 400);
+  if (!token) return html(gatePage(slug, paper, env.TURNSTILE_SITEKEY, true), 400);
 
   // The security boundary: the widget alone proves nothing, this call does.
   const body = new FormData();
@@ -133,7 +133,7 @@ async function handleUnlock(request, env) {
   } catch {
     ok = false;
   }
-  if (!ok) return html(gatePage(slug, paper.title, env.TURNSTILE_SITEKEY, true), 403);
+  if (!ok) return html(gatePage(slug, paper, env.TURNSTILE_SITEKEY, true), 403);
 
   const cookie = await mintCookie(env.COOKIE_SECRET);
   return new Response(null, {
@@ -332,7 +332,12 @@ function playerPage(slug, item) {
 </html>`;
 }
 
-function gatePage(slug, title, sitekey, failed = false) {
+function gatePage(slug, item, sitekey, failed = false) {
+  const isTalk = item.kind === 'talk';
+  const noun = isTalk ? 'recording' : 'working paper';
+  const audience = isTalk ? 'viewers' : 'readers';
+  const action = isTalk ? 'Watch recording' : 'Open PDF';
+  const title = item.title;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -359,13 +364,13 @@ function gatePage(slug, title, sitekey, failed = false) {
 <body>
 <main>
   <h1>${escapeHtml(title)}</h1>
-  <p>This working paper is available to human readers. Complete the check below, then press <strong>Open PDF</strong>.</p>
+  <p>This ${noun} is available to human ${audience}. Complete the check below, then press <strong>${escapeHtml(action)}</strong>.</p>
   ${failed ? '<p class="err">That verification did not go through. Please try again.</p>' : ''}
   <hr>
   <form method="POST" action="/unlock">
     <input type="hidden" name="slug" value="${escapeHtml(slug)}">
     <div class="cf-turnstile" data-sitekey="${escapeHtml(sitekey)}"></div>
-    <button type="submit">Open PDF</button>
+    <button type="submit">${escapeHtml(action)}</button>
   </form>
   <hr>
   <p>Trouble? Email <a href="mailto:eric.feltham@aya.yale.edu" style="color:inherit">eric.feltham@aya.yale.edu</a> for a copy.</p>

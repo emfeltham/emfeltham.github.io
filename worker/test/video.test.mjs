@@ -146,3 +146,16 @@ test('the gate page still renders for a talk', async () => {
   assert.equal(res.status, 200);
   assert.match(await res.text(), /Cognitive representations of social networks/);
 });
+
+test('gate copy fits the kind of item being gated', async () => {
+  const talk = await req(`/p/${TALK}`).then((r) => r.text());
+  assert.match(talk, /This recording is available to human viewers/);
+  assert.match(talk, /<button type="submit">Watch recording<\/button>/);
+  assert.doesNotMatch(talk, /Open PDF/);
+  assert.doesNotMatch(talk, /working paper/);
+
+  const paper = await req(`/p/${PAPER}`).then((r) => r.text());
+  assert.match(paper, /This working paper is available to human readers/);
+  assert.match(paper, /<button type="submit">Open PDF<\/button>/);
+  assert.doesNotMatch(paper, /Watch recording/);
+});
