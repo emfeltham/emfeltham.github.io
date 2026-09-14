@@ -39,6 +39,12 @@ const CATALOG = {
     title: 'The Fall of White Americans\u2019 Implicit Racial Bias Split in 2016 Along the Geography of Manufacturing Decline',
     key: 'feltham-fall-implicit-racial-bias.pdf',
   },
+  'feltham-empirica-networks': {
+    kind: 'paper',
+    contentType: 'application/pdf',
+    title: 'empirica-networks: online network experiments with Empirica',
+    key: 'feltham-empirica-networks.pdf',
+  },
   'feltham-sfi-2026-cognitive-representations': {
     kind: 'talk',
     contentType: 'video/mp4',
