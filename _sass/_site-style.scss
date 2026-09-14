@@ -1,2 +1,10 @@
 /* Site-specific style overrides */
 @import "theme-toggle";
+
+/* The theme reserves margin-maker's bottom margin for a margin-note callout
+   next to the page title; this site doesn't use page.subtitle, so the extra
+   space is just a large, unwanted gap between the title and the content
+   below it (e.g. the tagline on the homepage). */
+p.margin-maker {
+  margin-bottom: 0.5rem;
+}
