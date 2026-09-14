@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mintCookie, verifyCookie, timingSafeEqual, readCookie } from '../src/index.js';
+import { mintCookie, verifyCookie, timingSafeEqual, readCookie, COOKIE_TTL_SECONDS } from '../src/index.js';
 
 const SECRET = 'test-secret-value-at-least-32-bytes-long';
 
@@ -33,7 +33,8 @@ test('an expired cookie is rejected even though it is correctly signed', async (
   // Reconstruct a valid signature over an expired timestamp by re-minting
   // with a patched clock.
   const realNow = Date.now;
-  Date.now = () => (past - 30 * 60) * 1000;
+  // Wind back further than the TTL, whatever it currently is.
+  Date.now = () => (past - COOKIE_TTL_SECONDS) * 1000;
   const stale = await mintCookie(SECRET);
   Date.now = realNow;
   assert.equal(await verifyCookie(stale, SECRET), false);

@@ -12,25 +12,40 @@
  */
 
 const COOKIE_NAME = 'pp_pass';
-const COOKIE_TTL_SECONDS = 30 * 60;
+export const COOKIE_TTL_SECONDS = 6 * 60 * 60; // outlives a full-length talk
 const SITEVERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
 /**
- * Slug -> paper. Only slugs listed here are reachable, so an attacker cannot
- * enumerate arbitrary R2 keys through /f/. Add a line per paper.
+ * Slug -> item. Only slugs listed here are reachable, so an attacker cannot
+ * enumerate arbitrary R2 keys. `kind` is 'paper' (served as a file at /f/) or
+ * 'talk' (played at /t/, bytes streamed from /v/).
  */
 const CATALOG = {
   'feltham-seeing-structure-similarly': {
+    kind: 'paper',
+    contentType: 'application/pdf',
     title: 'Seeing Structure Similarly',
     key: 'feltham-seeing-structure-similarly.pdf',
   },
   'feltham-signal-degradation-without-convergence': {
+    kind: 'paper',
+    contentType: 'application/pdf',
     title: 'Signal Degradation without Convergence: Scale Relevance and Partisan Boundary Investment',
     key: 'feltham-signal-degradation-without-convergence.pdf',
   },
   'feltham-fall-implicit-racial-bias': {
+    kind: 'paper',
+    contentType: 'application/pdf',
     title: 'The Fall of White Americans\u2019 Implicit Racial Bias Split in 2016 Along the Geography of Manufacturing Decline',
     key: 'feltham-fall-implicit-racial-bias.pdf',
+  },
+  'feltham-sfi-2026-cognitive-representations': {
+    kind: 'talk',
+    contentType: 'video/mp4',
+    title: 'Cognitive representations of social networks',
+    venue: 'Santa Fe Institute Invited Seminar',
+    date: 'April 16, 2026',
+    key: 'feltham-sfi-2026-cognitive-representations.mp4',
   },
 };
 
@@ -70,6 +85,12 @@ export default {
 
       const file = path.match(/^\/f\/([a-z0-9-]+)\/?$/);
       if (file) return handleFile(file[1], request, env);
+
+      const talk = path.match(/^\/t\/([a-z0-9-]+)\/?$/);
+      if (talk) return handleTalk(talk[1], request, env);
+
+      const media = path.match(/^\/v\/([a-z0-9-]+)\/?$/);
+      if (media) return handleMedia(media[1], request, env);
     }
 
     return text('Not found\n', 404);
@@ -118,7 +139,7 @@ async function handleUnlock(request, env) {
   return new Response(null, {
     status: 302,
     headers: {
-      location: `/f/${slug}`,
+      location: `${paper.kind === 'talk' ? '/t' : '/f'}/${slug}`,
       'set-cookie': `${COOKIE_NAME}=${cookie}; Max-Age=${COOKIE_TTL_SECONDS}; Path=/; HttpOnly; Secure; SameSite=Lax`,
       'cache-control': 'private, no-store',
     },
@@ -127,7 +148,8 @@ async function handleUnlock(request, env) {
 
 async function handleFile(slug, request, env) {
   const paper = CATALOG[slug];
-  if (!paper) return text('Not found\n', 404);
+  // Talks are streamed from /v/, never handed out whole here.
+  if (!paper || paper.kind === 'talk') return text('Not found\n', 404);
 
   const cookie = readCookie(request.headers.get('cookie'), COOKIE_NAME);
   if (!(await verifyCookie(cookie, env.COOKIE_SECRET))) {
@@ -142,13 +164,65 @@ async function handleFile(slug, request, env) {
 
   return new Response(request.method === 'HEAD' ? null : object.body, {
     headers: {
-      'content-type': 'application/pdf',
+      'content-type': paper.contentType,
       'content-disposition': `inline; filename="${paper.key}"`,
       'cache-control': 'private, no-store',
       'x-robots-tag': 'noindex, noarchive, noai, noimageai',
       'referrer-policy': 'no-referrer',
     },
   });
+}
+
+async function handleTalk(slug, request, env) {
+  const item = CATALOG[slug];
+  if (!item || item.kind !== 'talk') return text('Not found\n', 404);
+
+  const cookie = readCookie(request.headers.get('cookie'), COOKIE_NAME);
+  if (!(await verifyCookie(cookie, env.COOKIE_SECRET))) {
+    return new Response(null, {
+      status: 302,
+      headers: { location: `/p/${slug}`, 'cache-control': 'private, no-store' },
+    });
+  }
+  return html(playerPage(slug, item));
+}
+
+async function handleMedia(slug, request, env) {
+  const item = CATALOG[slug];
+  if (!item || item.kind !== 'talk') return text('Not found\n', 404);
+
+  const cookie = readCookie(request.headers.get('cookie'), COOKIE_NAME);
+  if (!(await verifyCookie(cookie, env.COOKIE_SECRET))) {
+    // 403 rather than a redirect: a <video> that follows a 302 to an HTML gate
+    // page surfaces an opaque media error instead of failing cleanly.
+    return text('Forbidden\n', 403);
+  }
+
+  const object = await env.PAPERS.get(item.key, { range: request.headers });
+  if (!object) return text('Not found\n', 404);
+
+  const headers = new Headers();
+  object.writeHttpMetadata(headers);
+  headers.set('content-type', item.contentType);
+  headers.set('etag', object.httpEtag);
+  headers.set('accept-ranges', 'bytes');
+  headers.set('cache-control', 'private, max-age=3600');
+  headers.set('x-robots-tag', 'noindex, noarchive, noai, noimageai');
+  headers.set('referrer-policy', 'no-referrer');
+
+  let status = 200;
+  if (request.headers.has('range') && object.range) {
+    // R2Range is {offset,length} or {suffix}; normalise both.
+    const offset = object.range.offset ?? object.size - object.range.suffix;
+    const length = object.range.length ?? object.size - offset;
+    headers.set('content-range', `bytes ${offset}-${offset + length - 1}/${object.size}`);
+    headers.set('content-length', String(length));
+    status = 206;
+  } else {
+    headers.set('content-length', String(object.size));
+  }
+
+  return new Response(request.method === 'HEAD' ? null : object.body, { status, headers });
 }
 
 /* ------------------------------------------------------------ signed cookie */
@@ -219,6 +293,43 @@ const html = (body, status = 200) =>
 
 function escapeHtml(s) {
   return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+}
+
+function playerPage(slug, item) {
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>${escapeHtml(item.title)}</title>
+<style>
+  :root { color-scheme: light dark; --fg: #111; --muted: #555; --bg: #fffff8; --rule: #ddd; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #e8e8e8; --muted: #a0a0a0; --bg: #151515; --rule: #333; } }
+  body { background: var(--bg); color: var(--fg); margin: 0;
+         font-family: Palatino, "Palatino Linotype", Georgia, serif; line-height: 1.5; }
+  main { max-width: 52rem; margin: 0 auto; padding: 3rem 1.25rem; }
+  h1 { font-size: 1.35rem; font-weight: normal; font-style: italic; margin: 0 0 .4rem; }
+  p.meta { color: var(--muted); font-size: .95rem; margin: 0 0 1.5rem; }
+  video { width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 9;
+          background: #000; border: 1px solid var(--rule); border-radius: 2px; display: block; }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
+  p.note { color: var(--muted); font-size: .9rem; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>${escapeHtml(item.title)}</h1>
+  <p class="meta">${escapeHtml(item.venue)} &middot; ${escapeHtml(item.date)}</p>
+  <video controls preload="metadata" playsinline controlsList="nodownload"
+         src="/v/${escapeHtml(slug)}"></video>
+  <hr>
+  <p class="note">Trouble playing this? Email
+    <a href="mailto:eric.feltham@aya.yale.edu">eric.feltham@aya.yale.edu</a>.</p>
+</main>
+</body>
+</html>`;
 }
 
 function gatePage(slug, title, sitekey, failed = false) {
