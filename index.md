@@ -8,7 +8,7 @@ nav_exclude: true
   <img src="/images/eric.feltham.photo.png" alt="Eric Martin Feltham" style="width: 100%; display: block; margin: 0 auto;">
 </span>
 
-*Postdoctoral Research Scholar, Sociology*
+*Postdoctoral Research Scholar*
 
 [CV](/files/main.pdf) ·
 [Working Papers](/working-papers/) ·
