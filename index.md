@@ -11,6 +11,7 @@ nav_exclude: true
 *Postdoctoral Research Scholar, Sociology*
 
 [CV](/files/main.pdf) ·
+[Working Papers](/working-papers/) ·
 [Google Scholar](https://scholar.google.com/citations?hl=en&pli=1&user=ZBXN38kAAAAJ) ·
 [ORCID](https://orcid.org/0000-0001-8080-7119) ·
 [GitHub](https://github.com/emfeltham) ·
