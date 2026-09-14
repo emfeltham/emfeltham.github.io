@@ -23,5 +23,4 @@ Eric Feltham and Nicholas Christakis. "[Seeing Structure Similarly](https://{{ s
 
 ---
 
-Published work is listed on
-[Google Scholar]({{ site.social.googlescholar }}).
+A full list of publications is available on my [CV]({{ site.social.cv }}).
