@@ -5,7 +5,7 @@ permalink: /talks/
 nav_exclude: true
 ---
 
-Recordings are available below. If a link gives you trouble, do send me an email and I will send the video.
+Recordings are available for selected talks. If a link gives you trouble, do send me an email and I will send the video.
 
 <!--
   Each slug must match a CATALOG key in worker/src/index.js, and the recording
