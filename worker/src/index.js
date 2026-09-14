@@ -248,7 +248,7 @@ function gatePage(slug, title, sitekey, failed = false) {
 <body>
 <main>
   <h1>${escapeHtml(title)}</h1>
-  <p>This working paper is available to human readers. Please confirm below and the PDF will open.</p>
+  <p>This working paper is available to human readers. Complete the check below, then press <strong>Open PDF</strong>.</p>
   ${failed ? '<p class="err">That verification did not go through. Please try again.</p>' : ''}
   <hr>
   <form method="POST" action="/unlock">
