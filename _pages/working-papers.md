@@ -2,11 +2,10 @@
 layout: page
 title: "Working Papers"
 permalink: /working-papers/
+nav_exclude: true
 ---
 
-Drafts below open through a brief automated check that confirms you are a human
-reader rather than a scraper. If a link gives you trouble, email me and I will
-send the PDF directly.
+Drafts are available below. If a link gives you trouble, do send me an email and I will send the PDF.
 
 <!--
   Each slug must match a CATALOG key in worker/src/index.js, and the PDF must be
@@ -23,4 +22,4 @@ Eric Feltham and Nicholas Christakis. "[Seeing Structure Similarly](https://{{ s
 
 ---
 
-A full list of publications is available on my [CV]({{ site.social.cv }}).
+My full list of publications is available on my [CV]({{ site.social.cv }}).
