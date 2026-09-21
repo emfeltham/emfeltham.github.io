@@ -16,7 +16,7 @@ Eric Feltham and Nicholas Christakis. "[Cognitive Expectations of Homophily in V
 
 Eric Feltham. "[Signal Degradation without Convergence: Scale Relevance and Partisan Boundary Investment](https://{{ site.papers_host }}/p/feltham-signal-degradation-without-convergence)".
 
-Eric Feltham. "[The Fall of White Americans' Implicit Racial Bias Split in 2016 Along the Geography of Manufacturing Decline](https://{{ site.papers_host }}/p/feltham-fall-implicit-racial-bias)".
+Eric Feltham. "[The Decline in White Americans' Implicit Racial Bias Diverged in 2016 Along the Geography of Manufacturing Decline](https://{{ site.papers_host }}/p/feltham-fall-implicit-racial-bias)".
 
 Eric Feltham and Nicholas Christakis. "[Seeing Structure Similarly](https://{{ site.papers_host }}/p/feltham-seeing-structure-similarly)".
 

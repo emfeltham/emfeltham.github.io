@@ -36,7 +36,7 @@ const CATALOG = {
   'feltham-fall-implicit-racial-bias': {
     kind: 'paper',
     contentType: 'application/pdf',
-    title: 'The Fall of White Americans\u2019 Implicit Racial Bias Split in 2016 Along the Geography of Manufacturing Decline',
+    title: 'The Decline in White Americans\u2019 Implicit Racial Bias Diverged in 2016 Along the Geography of Manufacturing Decline',
     key: 'feltham-fall-implicit-racial-bias.pdf',
   },
   'feltham-empirica-networks': {
