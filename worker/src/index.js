@@ -39,6 +39,12 @@ const CATALOG = {
     title: 'The Decline in White Americans\u2019 Implicit Racial Bias Diverged in 2016 Along the Geography of Manufacturing Decline',
     key: 'feltham-fall-implicit-racial-bias.pdf',
   },
+  'feltham-ppb-youdens-j': {
+    kind: 'paper',
+    contentType: 'application/pdf',
+    title: 'The Yes Rate Revisited: PPB as a Distribution-Free Complement to Youden’s J',
+    key: 'feltham-ppb-youdens-j.pdf',
+  },
   'feltham-empirica-networks': {
     kind: 'paper',
     contentType: 'application/pdf',
