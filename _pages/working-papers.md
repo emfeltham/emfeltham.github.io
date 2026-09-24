@@ -14,9 +14,9 @@ Drafts are available below. If a link gives you trouble, do send me an email and
 
 Eric Feltham and Nicholas Christakis. "[Cognitive Expectations of Homophily in Village Social Networks](https://osf.io/preprints/socarxiv/z4nyq_v3)". *Job market paper.* Under review. SocArXiv preprint (2026).
 
-Eric Feltham. "[Signal Degradation without Convergence: Scale Relevance and Partisan Boundary Investment](https://{{ site.papers_host }}/p/feltham-signal-degradation-without-convergence)".
+Eric Feltham. "[Signal Degradation without Convergence: Scale Relevance and the Politics of a Credential](https://{{ site.papers_host }}/p/feltham-signal-degradation-without-convergence)".
 
-Eric Feltham. "[The Decline in White Americans' Implicit Racial Bias Diverged in 2016 Along the Geography of Manufacturing Decline](https://{{ site.papers_host }}/p/feltham-fall-implicit-racial-bias)".
+Eric Feltham. "[The Decline in White Americans' Implicit Racial Bias Diverged Along the Geography of Manufacturing Decline](https://{{ site.papers_host }}/p/feltham-fall-implicit-racial-bias)".
 
 Eric Feltham and Nicholas Christakis. "[Seeing Structure Similarly](https://{{ site.papers_host }}/p/feltham-seeing-structure-similarly)".
 

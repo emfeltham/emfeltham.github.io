@@ -30,13 +30,13 @@ const CATALOG = {
   'feltham-signal-degradation-without-convergence': {
     kind: 'paper',
     contentType: 'application/pdf',
-    title: 'Signal Degradation without Convergence: Scale Relevance and Partisan Boundary Investment',
+    title: 'Signal Degradation without Convergence: Scale Relevance and the Politics of a Credential',
     key: 'feltham-signal-degradation-without-convergence.pdf',
   },
   'feltham-fall-implicit-racial-bias': {
     kind: 'paper',
     contentType: 'application/pdf',
-    title: 'The Decline in White Americans\u2019 Implicit Racial Bias Diverged in 2016 Along the Geography of Manufacturing Decline',
+    title: 'The Decline in White Americans\u2019 Implicit Racial Bias Diverged Along the Geography of Manufacturing Decline',
     key: 'feltham-fall-implicit-racial-bias.pdf',
   },
   'feltham-ppb-youdens-j': {
