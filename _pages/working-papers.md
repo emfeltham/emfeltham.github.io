@@ -20,7 +20,7 @@ Eric Feltham. "[The Decline in White Americans' Implicit Racial Bias Diverged Al
 
 Eric Feltham and Nicholas Christakis. "[Seeing Structure Similarly](https://{{ site.papers_host }}/p/feltham-seeing-structure-similarly)".
 
-Eric Feltham. "[The Yes Rate Revisited: PPB as a Distribution-Free Complement to Youden's J](https://{{ site.papers_host }}/p/feltham-ppb-youdens-j)".
+Eric Feltham. "[The Yes Rate Revisited: PPB as a Distribution-Free Complement to Youden's J](https://{{ site.papers_host }}/p/feltham-ppb-youdens-j)". Under review.
 
 Eric Feltham. "[FormulaCompiler.jl and Margins.jl: Efficient Marginal Effects in Julia](https://arxiv.org/abs/2601.07065)". Under review. arXiv preprint (2026).
 
