@@ -27,6 +27,12 @@ const CATALOG = {
     title: 'Seeing Structure Similarly',
     key: 'feltham-seeing-structure-similarly.pdf',
   },
+  'feltham-network-cognition-cultural-context': {
+    kind: 'paper',
+    contentType: 'application/pdf',
+    title: 'Network Cognition in Cultural Context',
+    key: 'feltham-network-cognition-cultural-context.pdf',
+  },
   'feltham-signal-degradation-without-convergence': {
     kind: 'paper',
     contentType: 'application/pdf',

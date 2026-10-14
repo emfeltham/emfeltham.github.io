@@ -14,6 +14,8 @@ Drafts are available below. If a link gives you trouble, do send me an email and
 
 Eric Feltham and Nicholas Christakis. "[Cognitive Expectations of Homophily in Village Social Networks](https://osf.io/preprints/socarxiv/z4nyq_v3)". *Job market paper.* Under review. SocArXiv preprint (2026).
 
+Eric Feltham. "[Network Cognition in Cultural Context](https://{{ site.papers_host }}/p/feltham-network-cognition-cultural-context)".
+
 Eric Feltham. "[Signal Degradation without Convergence: Scale Relevance and the Politics of a Credential](https://{{ site.papers_host }}/p/feltham-signal-degradation-without-convergence)".
 
 Eric Feltham. "[The Decline in White Americans' Implicit Racial Bias Diverged Along the Geography of Manufacturing Decline](https://{{ site.papers_host }}/p/feltham-fall-implicit-racial-bias)".
